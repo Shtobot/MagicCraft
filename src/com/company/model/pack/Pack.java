@@ -5,7 +5,7 @@ import com.company.model.cards.Card;
 import java.util.ArrayList;
 
 /**
- * Created by Сергей on 19.12.2015.
+ * Created by hugo_obrien on 19.12.2015.
  */
 public class Pack {
 

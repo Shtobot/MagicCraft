@@ -1,7 +1,7 @@
 package com.company.model.cards;
 
 /**
- * Created by Сергей on 19.12.2015.
+ * Created by hugo_obrien on 19.12.2015.
  */
 public class Card {
 
