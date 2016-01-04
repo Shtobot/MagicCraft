@@ -3,7 +3,7 @@ package com.company.model.cards;
 /**
  * Created by hugo_obrien on 19.12.2015.
  */
-public class Card {
+public abstract class Card {
 
     private String name;
     private int manaCost;

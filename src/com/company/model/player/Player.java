@@ -10,6 +10,7 @@ public class Player {
     private String playerName;
     private Pack deck;
     private Pack hand;
+    private boolean isActive;
 
     public Player(String name) {
         this.playerName = name;
