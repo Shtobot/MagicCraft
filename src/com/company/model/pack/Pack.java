@@ -7,15 +7,29 @@ import java.util.ArrayList;
 /**
  * Created by hugo_obrien on 19.12.2015.
  */
-public class Pack {
+public abstract class Pack {
 
-    ArrayList<Card> pack;
+    ArrayList<Card> cards;
 
     public Pack() {
-        pack = new ArrayList<>();
+        cards = new ArrayList<Card>();
     }
 
-    public void addCard(Card card) {
-        this.pack.add(card);
+    public Pack(Card card) {
+        cards = new ArrayList<Card>();
+        cards.add(card);
     }
+
+    public Pack(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
+    public Pack(Pack pack) {
+        this.cards = pack.getCards();
+    }
+
+    public ArrayList<Card> getCards() {
+        return this.cards;
+    }
+
 }
