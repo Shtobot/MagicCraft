@@ -10,7 +10,7 @@ public class Player {
     private String playerName;
     private Pack deck;
     private Pack hand;
-    private boolean isActive;
+    private boolean active;
 
     public Player(String name) {
         this.playerName = name;
@@ -18,6 +18,18 @@ public class Player {
 
     public String getPlayerName() {
         return this.playerName;
+    }
+
+    public boolean isActive() {
+        return this.active;
+    }
+
+    public void activate() {
+        this.active = true;
+    }
+
+    public void deactivate() {
+        this.active = false;
     }
 
 }

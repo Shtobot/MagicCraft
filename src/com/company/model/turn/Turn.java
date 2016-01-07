@@ -16,19 +16,22 @@ public class Turn {
     private Player activePlayer;
     private Player passivePlayer;
     private Combination combination;
-    private boolean isEndTurn = false;
+    private boolean endTurn = false;
+    private boolean endGame;
     BufferedReader reader;
 
-    public Turn(Player activePlayer, Player passivePlayer) {
-        this.activePlayer = activePlayer;
-        this.passivePlayer = passivePlayer;
+    public Turn(Player firstPlayer, Player secondPlayer) {
+
+        setActivity(firstPlayer, secondPlayer);
+
         reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Turn of " + activePlayer.getPlayerName());
-        while (!isEndTurn) {
+        while (!endTurn && !endGame) {
             System.out.println("Enter the number of command:");
             System.out.println("1 - add card to combination");
             System.out.println("2 - cast the combination");
             System.out.println("3 - end turn");
+            System.out.println("4 - end game");
             try {
                 String command = reader.readLine();
                 switch (command) {
@@ -39,7 +42,10 @@ public class Turn {
                         cast();
                         break;
                     case "3":
-                        endTurn();
+                        setEndTurn();
+                        break;
+                    case "4":
+                        setEndGame();
                         break;
                 }
             } catch (IOException e) {
@@ -47,14 +53,6 @@ public class Turn {
                 System.out.println("Wrong command");
             }
         }
-    }
-
-    public Player getActivePlayer() {
-        return activePlayer;
-    }
-
-    public Player getPassivePlayer() {
-        return passivePlayer;
     }
 
     public Pack getCombination() {
@@ -73,8 +71,27 @@ public class Turn {
         System.out.println("I have not yet complete this, try again later");
     }
 
-    public void endTurn() {
+    public void setEndTurn() {
         System.out.println("Ending turn");
-        isEndTurn = true;
+        endTurn = true;
+    }
+
+    public void setActivity(Player first, Player second) {
+        if (first.isActive() && !second.isActive()) {
+            activePlayer = first;
+            passivePlayer = second;
+        } else {
+            activePlayer = second;
+            passivePlayer = first;
+        }
+    }
+
+    public boolean isEndGame() {
+        return endGame;
+    }
+
+    public void setEndGame() {
+        System.out.println("Ending game");
+        endGame = true;
     }
 }
