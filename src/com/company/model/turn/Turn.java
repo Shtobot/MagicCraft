@@ -1,5 +1,6 @@
 package com.company.model.turn;
 
+import com.company.model.Exceptions.EmptyPackException;
 import com.company.model.pack.Combination;
 import com.company.model.pack.Pack;
 import com.company.model.player.Player;
@@ -23,6 +24,11 @@ public class Turn {
     public Turn(Player firstPlayer, Player secondPlayer) {
 
         setActivity(firstPlayer, secondPlayer);
+        try {
+            activePlayer.drawCardToHand(-1);
+        } catch (EmptyPackException e) {
+            System.out.println("You have run out of cards");
+        }
 
         reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Turn of " + activePlayer.getPlayerName());

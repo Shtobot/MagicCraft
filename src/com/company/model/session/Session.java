@@ -1,5 +1,6 @@
 package com.company.model.session;
 
+import com.company.model.Exceptions.EmptyPackException;
 import com.company.model.player.Player;
 import com.company.model.turn.Turn;
 
@@ -18,6 +19,14 @@ public class Session {
     public Session(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
+        for (int i = 0; i < 3; i++) {
+            try {
+                this.player1.drawCardToHand(-1);
+                this.player2.drawCardToHand(-1);
+            } catch (EmptyPackException e) {
+                e.printStackTrace();
+            }
+        }
 
         Random random = new Random();
         int randomRes = random.nextInt(2);

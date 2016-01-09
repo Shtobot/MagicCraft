@@ -8,6 +8,11 @@ public abstract class Card {
     private String name;
     private int manaCost;
 
+    public Card(String name, int manaCost) {
+        this.name = name;
+        this.manaCost = manaCost;
+    }
+
     public String getName() {
         return this.name;
     }
