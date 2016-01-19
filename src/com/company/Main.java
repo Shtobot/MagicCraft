@@ -5,7 +5,8 @@ import com.company.model.session.Session;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {//я твой код скобу шатал
 	// write your code here
         Player player1 = new Player("First");
         Player player2 = new Player("Secound");
